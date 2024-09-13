@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import sklearn
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import StandardScaler
@@ -33,8 +34,8 @@ st.title('Startup Success Predictor')
 
 # Input fields
 st.header('Enter Startup Information')
-latitude = st.number_input('Latitude', min_value=-90.0, max_value=90.0, value=0.0)
-longitude = st.number_input('Longitude', min_value=-180.0, max_value=180.0, value=0.0)
+company_name = st.text_input('Company Name')
+foundation_date = st.date_input('Foundation Date')
 age_first_funding_year = st.number_input('Age at First Funding (years)', min_value=0.0)
 age_last_funding_year = st.number_input('Age at Last Funding (years)', min_value=0.0)
 relationships = st.number_input('Number of Relationships', min_value=0)
@@ -62,8 +63,6 @@ is_top500 = st.checkbox('Is in Top 500')
 if st.button('Predict Success'):
     # Prepare input data
     input_data = pd.DataFrame({
-        'latitude': [latitude],
-        'longitude': [longitude],
         'age_first_funding_year': [age_first_funding_year],
         'age_last_funding_year': [age_last_funding_year],
         'relationships': [relationships],
