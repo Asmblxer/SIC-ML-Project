@@ -3,7 +3,4 @@ This Repository Contains My Samsung Innovation Campus Mid Machine Learning Proje
 
 > [!NOTE]
 > 
-> Life app
-> 
-> [!LINK]
->  https://sic-ml-project.streamlit.app
+> Life app  --> https://sic-ml-project.streamlit.app
